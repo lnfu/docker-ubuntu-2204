@@ -1,0 +1,19 @@
+services:
+  main:
+    #    platform: linux/amd64
+    build: .
+    restart: unless-stopped
+    privileged: false
+    cap_add:
+      - NET_ADMIN
+    environment:
+      - EDITOR=vim
+    user: "efliao:efliao"
+    volumes:
+      - .data/home:/home
+    networks:
+      default:
+
+
+networks:
+  default:
